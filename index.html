@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Nosso Amor ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#ff4d6d,#ff99ac);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    margin-top:120px;
+}
+
+h1{
+    font-size:45px;
+}
+
+#contador{
+    font-size:35px;
+    margin-top:30px;
+}
+
+.coracao{
+    position: fixed;
+    top:-10px;
+    color:#ff1a4d;
+    animation: cair linear infinite;
+}
+
+@keyframes cair{
+    to{
+        transform: translateY(110vh);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Nosso tempo juntos ❤️</h1>
+
+<p>Desde 22 de Março de 2024</p>
+
+<div id="contador"></div>
+
+</div>
+
+<audio autoplay loop>
+<source src="best part.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// DATA DO INÍCIO
+let inicio = new Date("2024-03-22 22:00:00")
+
+function atualizarContador(){
+
+let agora = new Date()
+
+let diferenca = agora - inicio
+
+let dias = Math.floor(diferenca / (1000*60*60*24))
+
+let horas = Math.floor((diferenca/(1000*60*60)) % 24)
+
+let minutos = Math.floor((diferenca/(1000*60)) % 60)
+
+let segundos = Math.floor((diferenca/1000) % 60)
+
+document.getElementById("contador").innerHTML =
+dias+" dias "+horas+" horas "+minutos+" minutos "+segundos+" segundos ❤️"
+
+}
+
+setInterval(atualizarContador,1000)
+
+
+// CORAÇÕES CAINDO
+
+function criarCoracao(){
+
+const coracao = document.createElement("div")
+
+coracao.classList.add("coracao")
+
+coracao.innerHTML="❤️"
+
+coracao.style.left=Math.random()*100+"vw"
+
+coracao.style.animationDuration=(Math.random()*3+2)+"s"
+
+document.body.appendChild(coracao)
+
+setTimeout(()=>{
+
+coracao.remove()
+
+},5000)
+
+}
+
+setInterval(criarCoracao,300)
+
+</script>
+
+</body>
+
+</html>
